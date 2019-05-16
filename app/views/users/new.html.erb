@@ -1,24 +1,41 @@
-Testing!
-<%# <form action="/users" method="post" accept-charset="UTF-8" >
-<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <div>
-  <label>Username:</label> <input type="text" name="username"><br><br>
-  <label>Email:</label> <input type="text" name="email"><br><br>
-  <label>Password:</label> <input type="password" name="password"><br><br>
-  </div>
-  <input type="submit" value="Submit">
-  
-</form> %>
+<div> <strong>HTML Forms</strong><br><br>
+  <form action="/users" method="post" accept-charset="UTF-8" >
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <div>
+    <label>Username:</label><br><input type="text" name="username"><br>
+    <label>Email:</label><br><input type="text" name="email"><br>
+    <label>Password:</label><br><input type="password" name="password"><br>
+    </div>
+    <input type="submit" value="Submit">
+  </form> <br><br>
+</div>
 
-<%=form_tag @user do |f| %>
-<%= label_tag 'username' %>
-<%= text_field_tag (:username) %>
+<div> <strong>Railsy Forms</strong><br><br>
+  <%=form_tag @user do |f| %>
+  <%= label_tag 'username' %> <br>
+  <%= text_field_tag (:username) %> <br>
 
-<%= label_tag 'email' %>
-<%= text_field_tag (:email) %>
+  <%= label_tag 'email' %> <br>
+  <%= text_field_tag (:email) %> <br>
 
-<%= label_tag 'password' %>
-<%= password_field_tag (:password) %>
+  <%= label_tag 'password' %> <br>
+  <%= password_field_tag (:password) %> <br>
 
-<%= submit_tag 'Create' %>
-<% end%>
+  <%= submit_tag 'Create' %> <br><br><br>
+  <% end%>
+</div>
+
+<div> <strong>Rails-ier Forms</strong><br><br>
+  <%=form_for @user do |f| %>
+  <%= f.label 'username' %> <br>
+  <%= f.text_field (:username) %> <br>
+
+  <%= f.label 'email' %> <br>
+  <%= f.text_field (:email) %> <br>
+
+  <%= f.label 'password' %> <br>
+  <%= f.password_field (:password) %> <br>
+
+  <%= f.submit 'Create' %> <br><br><br>
+  <% end%>
+</div>
